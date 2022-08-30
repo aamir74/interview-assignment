@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #ffffff;
+}
+:root {
+  --primary-color: #f7444e;
+  --secondary-color: #353b47;
+  --gray-border: #333;
+  --white: #eff1f3;
+  --avatar-letter-bg-color: #ae759f;
+  --danger: #da4577;
+  --warning: #fac739;
+  --info: #7ccce4;
+  --success: #76e2ac;
+  --margin-width: 1rem;
+  --shadow-color: rgba(2, 1, 1, 0.07);
+  --stacked-list-color: #d09bc2;
+  --margin-width: 1rem;
+  --toast-bg-color: #ae759f;
+}
