@@ -17,6 +17,10 @@ span {
   border-radius: 20px;
   padding: 3rem;
 }
+.form-stepper {
+  width: 90vw;
+  max-width: 300px;
+}
 .font-normal {
   font-weight: normal;
 }
