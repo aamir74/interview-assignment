@@ -1,6 +1,23 @@
 import { CButton, CForm, CFormInput } from "@coreui/react";
+import { useState } from "react";
 
-const Form1 = () => {
+const Step1 = ({ handleSubmit }) => {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    displayName: "",
+  });
+
+  const [submit, setSubmit] = useState(false);
+
+  const changeHandler = (e) => {
+    const data = { ...formData, [e.target.id]: e.target.value };
+    setFormData((prevData) => {
+      return { ...prevData, [e.target.id]: e.target.value };
+    });
+    if (data.fullName && data.displayName) setSubmit(true);
+    else setSubmit(false);
+  };
+
   return (
     <div className="d-flex justify-content-center flex-column align-items-center">
       <div className="d-flex justify-content-center flex-column align-items-center">
@@ -9,29 +26,32 @@ const Form1 = () => {
           You can always change them later
         </p>
       </div>
-      <CForm className="w-75">
+      <CForm className="w-100">
         <CFormInput
           type="text"
-          id="full-name"
+          id="fullName"
           label="Full Name"
           placeholder="Steve Jobs"
           aria-describedby="exampleFormControlInputHelpInline"
+          onChange={changeHandler}
         />
         <br />
         <CFormInput
           type="text"
-          id="display-name"
+          id="displayName"
           label="Display Name"
           placeholder="Steve"
           aria-describedby="exampleFormControlInputHelpInline"
+          onChange={changeHandler}
         />
         <br />
         <CButton
           style={{
             backgroundColor: "royalblue",
-            // marginTop: "20px",
             width: "100%",
           }}
+          onClick={() => handleSubmit(formData, 2)}
+          disabled={!submit}
         >
           Create Workspace
         </CButton>
@@ -39,4 +59,4 @@ const Form1 = () => {
     </div>
   );
 };
-export { Form1 };
+export { Step1 };

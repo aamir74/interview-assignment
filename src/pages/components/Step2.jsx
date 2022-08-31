@@ -6,8 +6,25 @@ import {
   CInputGroup,
   CInputGroupText,
 } from "@coreui/react";
+import { useState } from "react";
 
-const Form2 = () => {
+const Step2 = ({ handleSubmit }) => {
+  const [formData, setFormData] = useState({
+    workspaceName: "",
+    url: "",
+  });
+
+  const [submit, setSubmit] = useState(false);
+
+  const changeHandler = (e) => {
+    const data = { ...formData, [e.target.id]: e.target.value };
+    setFormData((prevData) => {
+      return { ...prevData, [e.target.id]: e.target.value };
+    });
+    if (data.workspaceName && data.url) setSubmit(true);
+    else setSubmit(false);
+  };
+
   return (
     <div className="d-flex justify-content-center flex-column align-items-center">
       <div className="d-flex justify-content-center flex-column align-items-center">
@@ -19,13 +36,14 @@ const Form2 = () => {
       <CForm className="w-75">
         <CFormInput
           type="text"
-          id="workspace-name"
+          id="workspaceName"
           label="Workspace Name"
           placeholder="Eden"
           aria-describedby="exampleFormControlInputHelpInline"
+          onChange={changeHandler}
         />
         <br />
-        <CFormLabel htmlFor="basic-url">
+        <CFormLabel htmlFor="url">
           <span className="d-flex justify-content-center">
             Workspace URL
             <p style={{ fontSize: "small", color: "grey" }}> (optional)</p>
@@ -34,18 +52,20 @@ const Form2 = () => {
         <CInputGroup className="mb-3">
           <CInputGroupText id="basic-addon3">www.eden.com/</CInputGroupText>
           <CFormInput
-            id="basic-url"
+            id="url"
             aria-describedby="basic-addon3"
             placeholder="Example"
+            onChange={changeHandler}
           />
         </CInputGroup>
         <br />
         <CButton
           style={{
             backgroundColor: "royalblue",
-            // marginTop: "20px",
             width: "100%",
           }}
+          onClick={() => handleSubmit(formData, 3)}
+          disabled={!submit}
         >
           Create Workspace
         </CButton>
@@ -53,4 +73,4 @@ const Form2 = () => {
     </div>
   );
 };
-export { Form2 };
+export { Step2 };
