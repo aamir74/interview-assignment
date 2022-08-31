@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   CButton,
   CForm,
@@ -6,7 +7,6 @@ import {
   CInputGroup,
   CInputGroupText,
 } from "@coreui/react";
-import { useState } from "react";
 
 const Step2 = ({ handleSubmit }) => {
   const [formData, setFormData] = useState({

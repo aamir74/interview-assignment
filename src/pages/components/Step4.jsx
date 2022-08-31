@@ -2,7 +2,6 @@ import {
   CAvatar,
   CButton,
 } from "@coreui/react";
-
 import { TiTick } from "react-icons/ti";
 
 const Step4 = ({ userData }) => {

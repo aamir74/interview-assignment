@@ -1,5 +1,5 @@
-import { CButton, CForm, CFormInput } from "@coreui/react";
 import { useState } from "react";
+import { CButton, CForm, CFormInput } from "@coreui/react";
 
 const Step1 = ({ handleSubmit }) => {
   const [formData, setFormData] = useState({

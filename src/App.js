@@ -1,12 +1,13 @@
+import { lazy, Suspense } from "react";
 import "./App.css";
-import { Home } from "./pages/Home";
+const Home = lazy(() => import("./pages/Home.jsx"));
 
-const App = () => {
+function App() {
   return (
-    <div className="App">
+    <Suspense fallback={<div>Loading...</div>}>
       <Home />
-    </div>
+    </Suspense>
   );
-};
+}
 
 export default App;

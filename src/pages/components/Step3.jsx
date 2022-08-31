@@ -1,6 +1,5 @@
-import { CButton, CCard, CCardBody, CCardTitle } from "@coreui/react";
 import { useState } from "react";
-
+import { CButton, CCard, CCardBody, CCardTitle } from "@coreui/react";
 import { BsPersonFill } from "react-icons/bs";
 import { RiTeamFill } from "react-icons/ri";
 

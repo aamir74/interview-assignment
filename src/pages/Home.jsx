@@ -1,10 +1,13 @@
-import { Steps } from "./components/Steps";
+import { useState } from "react";
+
 import { AiFillApple } from "react-icons/ai";
+
+import { Steps } from "./components/Steps";
 import { Step1 } from "./components/Step1";
 import { Step2 } from "./components/Step2";
 import { Step3 } from "./components/Step3";
 import { Step4 } from "./components/Step4";
-import { useState } from "react";
+
 
 const Home = () => {
   const [formStep, setFormStep] = useState(1);
@@ -33,4 +36,4 @@ const Home = () => {
     </div>
   );
 };
-export { Home };
+export default Home;
